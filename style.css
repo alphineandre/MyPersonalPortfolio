@@ -185,6 +185,7 @@ nav {
     align-items: center;
     padding: 50px;
     background-color: #c4c2c2;
+    margin-bottom: 4rem; /* Added gap between sections */
 }
 
 .hero-container {
@@ -252,13 +253,27 @@ section {
     padding: 4rem 0;
 }
 
-.about, .projects, .skills, .contact {
+.about, .projects, .education, .skills, .contact {
     text-align: center;
     transition: transform 0.5s ease;
 }
 
-.about:hover, .projects:hover, .skills:hover, .contact:hover {
+.about:hover, .projects:hover, .education:hover, .skills:hover, .contact:hover {
     transform: scale(1.05);
+}
+
+.about {
+    background: #c4c2c2;
+    text-align: center;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Skills Section */
@@ -354,7 +369,6 @@ section {
 .personal-skills {
     background: #c4c2c2;
     text-align: center;
-
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
