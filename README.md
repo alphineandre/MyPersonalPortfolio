@@ -29,7 +29,6 @@ This portfolio website is designed to give visitors insight into my software dev
 
 * HTML5: For structuring content.
 * CSS3: For styling and layout.
-* JavaScript: For interactive elements.
 * Formspree: For sending contact form submissions via email.
 * GitHub Pages or Netlify: For deployment.
 
