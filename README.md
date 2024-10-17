@@ -34,8 +34,7 @@ This portfolio website is designed to give visitors insight into my software dev
 
 #Installation and Setup
 -Prerequisites
-* Ensure you have Node.js and npm (or yarn) installed on your machine if you're using React.js or Vue.js.
-* A text editor like VS Code for editing the project.
+* A text editor like VS Code for editing and testing the project.
 
 #Installation
 1. Clone this repository to your local machine:
