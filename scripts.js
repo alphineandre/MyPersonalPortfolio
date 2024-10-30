@@ -41,3 +41,43 @@ sendBtn.addEventListener('click', function() {
         }, 1000);
     }
 });
+
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+const revealOnScroll = () => {
+    timelineItems.forEach(item => {
+        const top = item.getBoundingClientRect().top;
+        const triggerBottom = window.innerHeight * 0.8;
+        
+        if(top < triggerBottom) {
+            item.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                } else {
+                    entry.target.classList.remove("in-view");
+                }
+            });
+        },
+        {
+            threshold: 0.5,
+        }
+    );
+
+    timelineItems.forEach((item) => {
+        observer.observe(item);
+    });
+});
+
