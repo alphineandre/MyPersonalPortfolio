@@ -258,12 +258,12 @@ section {
     padding: 4rem 0;
 }
 
-.about, .projects, .education, .skills, .contact {
+.about, .personal-skills, .projects, .timeline, .skills, .contact {
     text-align: center;
     transition: transform 0.5s ease;
 }
 
-.about:hover, .projects:hover, .education:hover, .skills:hover, .contact:hover {
+.about:hover, .projects:hover, .timeline:hover, .skills:hover, .personal-skills-grid, .contact:hover {
     transform: scale(1.05);
 }
 
@@ -353,9 +353,6 @@ h3 {
     }
 }
 
-
-
-
 /* About Me */
 .about {
     background: #c4c2c2;
@@ -402,10 +399,42 @@ h3 {
     color: #006aff;
 }
 
-/* Circular Progress Styles */
-.skill {
+/* Skills Section */
+.skills {
+    padding: 4rem 0;
+}
+
+.skills-categories {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.skill-category {
+    background: #e9e6dd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+    transition: transform 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+}
+
+.skill-category h3 {
+    margin-bottom: 1.5rem;
+    color: #000000;
+}
+
+/* Skill Bars */
+.skill {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    display: flex;
     align-items: center;
 }
 
@@ -452,110 +481,51 @@ h3 {
     }
 }
 
+
 /* Personal-skills Section */
 .personal-skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 4rem; /* Added gap between sections */
+    gap: 30px;
+    margin: 2rem auto;
+    max-width: 1200px;
 }
 
 .personal-skills {
-    background: #c4c2c2;
-    text-align: center;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(145deg, #f6f6f6, #e6e6e6);
+    text-align: left;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.personal-skills h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+}
+
+.personal-skills p {
+    padding: 8px 15px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.personal-skills p:hover {
+    transform: translateX(10px);
+    background: #007bff;
+    color: white;
 }
 
 .personal-skills:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
-
-
-/* Timeline Styling */
-.timeline-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: #2196F3;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-    border-radius: 3px;
-}
-
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-    animation: fadeIn 0.5s ease-in;
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
-
-.timeline-content {
-    padding: 20px 30px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.timeline-content:hover {
-    transform: scale(1.03);
-}
-
-.timeline-date {
-    font-weight: bold;
-    color: #2196F3;
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-
-
-@media screen and (max-width: 768px) {
-    .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .timeline-date {
-        margin-bottom: 10px;
-        width: 100px;
-        text-align: left;
-    }
-
-    .timeline-item:after {
-        display: none;
-    }
-
-    .timeline-item:before {
-        left: 30px;
-    }
-}
-
 /* Project Section */
 .project-grid {
     display: grid;

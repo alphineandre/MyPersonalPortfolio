@@ -44,6 +44,23 @@ sendBtn.addEventListener('click', function() {
 
 const timelineItems = document.querySelectorAll('.timeline-item');
 
+timelineItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Remove flipped class from all other items
+        timelineItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('flipped');
+            }
+        });
+        // Toggle flipped class on clicked item
+        item.classList.toggle('flipped');
+    });
+});
+
+// Clear floats after timeline container
+const timelineContainer = document.querySelector('.timeline-container');
+timelineContainer.style.overflow = 'hidden';
+
 const revealOnScroll = () => {
     timelineItems.forEach(item => {
         const top = item.getBoundingClientRect().top;
@@ -51,6 +68,8 @@ const revealOnScroll = () => {
         
         if(top < triggerBottom) {
             item.classList.add('show');
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
         }
     });
 }
