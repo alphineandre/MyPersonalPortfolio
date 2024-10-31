@@ -113,11 +113,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-document.querySelector('.read-more-btn').addEventListener('click', function() {
-    const expandedContent = document.querySelector('.expanded-content');
-    const btn = this;
-    
-    expandedContent.classList.toggle('show');
-    btn.textContent = expandedContent.classList.contains('show') ? 'Read Less' : 'Read More';
-});
