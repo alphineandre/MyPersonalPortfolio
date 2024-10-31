@@ -90,13 +90,76 @@ closeBtn.addEventListener('click', function() {
     chatbotBtn.style.display = 'block';
 });
 
-// Function to append messages to chat
+// Chatbot responses with friendly messages and navigation buttons
+function getBotResponse(message) {
+    message = message.toLowerCase();
+    
+    const responses = {
+        skills: {
+            text: "I'd love to tell you about Alphy's amazing skills! He's proficient in HTML, CSS, JavaScript and many modern development tools. He's particularly passionate about creating responsive and user-friendly websites.",
+            link: "pages/skills.html",
+            linkText: "✨ Explore Skills"
+        },
+        contact: {
+            text: "Great that you want to connect! You can reach Alphy directly via email at alphy840@gmail.com or connect on LinkedIn. He's always excited to discuss new opportunities!",
+            link: "pages/contact.html",
+            linkText: "📬 Let's Connect"
+        },
+        projects: {
+            text: "Let me show you some exciting projects! Alphy has built several impressive web applications that showcase his technical expertise and creativity.",
+            link: "pages/projects.html",
+            linkText: "🚀 View Projects"
+        },
+        about: {
+            text: "Let me tell you about Alphy! He's a passionate Software Developer who loves creating innovative solutions. He's always eager to learn new technologies and tackle challenging problems.",
+            link: "pages/about.html",
+            linkText: "👋 Meet Alphy"
+        },
+        education: {
+            text: "Alphy has an impressive educational journey in software development! He's constantly learning and growing his skillset through both formal education and hands-on experience.",
+            link: "pages/timeline.html",
+            linkText: "📚 View Journey"
+        }
+    };
+
+    function createMessageWithButton(response) {
+        return `${response.text}<div class="chat-button-container"><button class="chat-link-btn" data-href="${response.link}">${response.linkText}</button></div>`;
+    }
+
+    if (message.includes('skills') || message.includes('what can you do') || message.includes('capable')) {
+        return createMessageWithButton(responses.skills);
+    }
+    else if (message.includes('contact') || message.includes('reach') || message.includes('connect')) {
+        return createMessageWithButton(responses.contact);
+    }
+    else if (message.includes('projects') || message.includes('work') || message.includes('portfolio')) {
+        return createMessageWithButton(responses.projects);
+    }
+    else if (message.includes('about') || message.includes('who') || message.includes('background')) {
+        return createMessageWithButton(responses.about);
+    }
+    else if (message.includes('education') || message.includes('study') || message.includes('qualification')) {
+        return createMessageWithButton(responses.education);
+    }
+    else {
+        return "Hey there! 👋 I'd be happy to tell you about Alphy's skills, projects, education, or how to get in contact. What interests you the most?";
+    }
+}
+
+// Enhanced message display with animations
 function appendMessage(message, sender) {
     const messageElement = document.createElement('div');
-    messageElement.classList.add('message');
-    messageElement.innerText = `${sender}: ${message}`;
+    messageElement.classList.add('message', `${sender.toLowerCase()}-message`);
+    messageElement.innerHTML = `<span class="sender">${sender}</span> ${message}`;
     chatContent.appendChild(messageElement);
-    chatContent.scrollTop = chatContent.scrollHeight; // Auto scroll to bottom
+    chatContent.scrollTop = chatContent.scrollHeight;
+
+    const buttons = messageElement.querySelectorAll('.chat-link-btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = button.dataset.href;
+        });
+    });
 }
 
 // Handle send button click
@@ -106,9 +169,10 @@ sendBtn.addEventListener('click', function() {
         appendMessage(message, 'You');
         userInput.value = ''; // Clear input
         
-        // Simulate bot response
+        // Get bot response
         setTimeout(() => {
-            appendMessage('Hello! How can I help you?', 'Kit');
+            const botResponse = getBotResponse(message);
+            appendMessage(botResponse, 'Kit');
         }, 1000);
     }
 });
