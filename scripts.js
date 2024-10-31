@@ -97,27 +97,27 @@ function getBotResponse(message) {
     const responses = {
         skills: {
             text: "I'd love to tell you about Alphy's amazing skills! He's proficient in HTML, CSS, JavaScript and many modern development tools. He's particularly passionate about creating responsive and user-friendly websites.",
-            link: "pages/skills.html",
+            link: "#skills",
             linkText: "✨ Explore Skills"
         },
         contact: {
             text: "Great that you want to connect! You can reach Alphy directly via email at alphy840@gmail.com or connect on LinkedIn. He's always excited to discuss new opportunities!",
-            link: "pages/contact.html",
+            link: "#contact",
             linkText: "📬 Let's Connect"
         },
         projects: {
             text: "Let me show you some exciting projects! Alphy has built several impressive web applications that showcase his technical expertise and creativity.",
-            link: "pages/projects.html",
+            link: "#projects",
             linkText: "🚀 View Projects"
         },
         about: {
             text: "Let me tell you about Alphy! He's a passionate Software Developer who loves creating innovative solutions. He's always eager to learn new technologies and tackle challenging problems.",
-            link: "pages/about.html",
+            link: "#about",
             linkText: "👋 Meet Alphy"
         },
         education: {
             text: "Alphy has an impressive educational journey in software development! He's constantly learning and growing his skillset through both formal education and hands-on experience.",
-            link: "pages/timeline.html",
+            link: "#timeline",
             linkText: "📚 View Journey"
         }
     };
