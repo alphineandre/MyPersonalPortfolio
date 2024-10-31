@@ -1,3 +1,16 @@
+// Add this at the beginning of your scripts.js file
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreBtn = document.querySelector('.read-more-btn');
+    const expandedContent = document.querySelector('.expanded-content');
+    
+    if(readMoreBtn && expandedContent) {
+        readMoreBtn.addEventListener('click', function() {
+            expandedContent.classList.toggle('show');
+            readMoreBtn.textContent = expandedContent.classList.contains('show') ? 'Read Less' : 'Read More';
+        });
+    }
+});
+
 // Get elements
 const chatbotBtn = document.getElementById('chatbot-btn');
 const chatbotWindow = document.getElementById('chatbot-window');
@@ -100,3 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+document.querySelector('.read-more-btn').addEventListener('click', function() {
+    const expandedContent = document.querySelector('.expanded-content');
+    const btn = this;
+    
+    expandedContent.classList.toggle('show');
+    btn.textContent = expandedContent.classList.contains('show') ? 'Read Less' : 'Read More';
+});

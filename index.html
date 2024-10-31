@@ -29,13 +29,6 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="social-links">
-                <a href="https://github.com/alphineandre" target="_blank">
-                    <img src="assets/logos/github.png" alt="GitHub Logo"></a>
-                </a>
-            </div>
-            <!-- Hamburger Icon -->
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
         </nav>
     </header>
 
@@ -57,7 +50,16 @@
     <section id="about" class="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>Hello! I’m a software developer with a diploma in Information Technology and a specialization in software development. I love creating efficient and user-friendly web applications and have a knack for solving complex problems with code.</p>
+            <div class="about-content">
+                <p class="initial-content">Hello, I'm Alphy Andre Chauke, a passionate software developer with a diploma in Information Technology, specializing in Software Development. Graduating with distinction and an overall average of 83%, I am committed to crafting solutions that are both efficient and innovative.</p>
+                
+                <div class="expanded-content">
+                    <p>With a strong foundation in languages such as Java, Kotlin, JavaScript, CSS, HTML, Python, and C#, as well as frameworks like ASP.NET, .NET, and WPF, I'm constantly expanding my technical skills to stay ahead in the tech industry. I am currently based in Centurion, Pretoria, working as an FNB Java Developer Intern with Capaciti, where I focus on developing applications and integrating seamless user experiences.</p>
+                    <p>In my current projects, I am diving deep into React Native with Expo, developing apps that balance functionality with user-friendly design. My journey has been enriched by hackathons, such as the recent FNB App of the Year Hackathon, which allowed me to collaborate, learn, and innovate alongside talented developers.</p>
+                    <p>Feel free to explore my projects and reach out if you'd like to connect or collaborate. Let's build something amazing together!</p>
+                </div>
+            </div>
+            <button class="read-more-btn">Read More</button>
         </div>
     </section>
 
@@ -417,12 +419,15 @@
             <input type="text" id="user-input" placeholder="Type your message...">
             <button id="send-btn">Send</button>
         </div>
-    </div>
+    </div> 
 
     <footer>
         <div class="container">
             <p>&copy; 2024 Alphy Andre Chauke. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
