@@ -179,19 +179,13 @@ sendBtn.addEventListener('click', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.createElement('div');
+    popup.className = 'welcome-popup';
+    popup.innerHTML = 'Hi! I\'m Kit, Alphy\'s assistant. Click the chat icon if you need help!';
+    document.body.appendChild(popup);
+
     setTimeout(() => {
-        const chatbotWindow = document.getElementById('chatbot-window');
-        chatbotWindow.style.display = 'flex';
-        
-        const chatContent = document.getElementById('chat-content');
-        const welcomeMessage = document.createElement('div');
-        welcomeMessage.className = 'message';
-        welcomeMessage.innerHTML = '<span>Kit:</span> Welcome to Alphy\'s portfolio! Feel free to ask me anything about his work and experience.';
-        chatContent.appendChild(welcomeMessage);
-        
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-            chatbotWindow.style.display = 'none';
-        }, 5000);
-    }, 1500); // Show popup 1.5 seconds after page load
+        popup.style.animation = 'popupFadeIn 0.5s ease reverse';
+        setTimeout(() => popup.remove(), 500);
+    }, 5000);
 });

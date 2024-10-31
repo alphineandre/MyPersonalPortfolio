@@ -550,7 +550,7 @@ h3 {
 }
 
 .personal-skills {
-    background: linear-gradient(145deg, #f6f6f6, #e6e6e6);
+    background: linear-gradient(145deg, #f6f6f6, #c4c2c2);
     text-align: left;
     padding: 30px;
     border-radius: 15px;
@@ -963,6 +963,29 @@ h3 {
 .sender {
     font-weight: bold;
     margin-right: 5px;
+}
+
+.welcome-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: linear-gradient(135deg, #00B4DB, #0083B0);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    max-width: 250px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: popupFadeIn 0.5s ease forwards;
+}
+
+@keyframes popupFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideUp {
