@@ -157,19 +157,19 @@ function getBotResponse(message) {
         return `${response.text}<div class="chat-button-container"><button class="chat-link-btn" data-href="${response.link}">${response.linkText}</button></div>`;
     }
 
-    if (message.includes('skills') || message.includes('what can you do') || message.includes('capable')) {
+    if (message.includes('skills') || message.includes('what can you do') || message.includes('capable') || message.includes('abilities') || message.includes('abilities') || message.includes('abilities')) {
         return createMessageWithButton(responses.skills);
     }
-    else if (message.includes('contact') || message.includes('reach') || message.includes('connect')) {
+    else if (message.includes('contact') || message.includes('reach') || message.includes('connect') || message.includes('contacts') || message.includes('hold') || message.includes('in touch') || message.includes('contact') || message.includes('reach') || message.includes('connect') || message.includes('contact') || message.includes('reach') || message.includes('connect')) {
         return createMessageWithButton(responses.contact);
     }
-    else if (message.includes('projects') || message.includes('work') || message.includes('portfolio')) {
+    else if (message.includes('projects') || message.includes('work') || message.includes('portfolio') || message.includes('showcase') || message.includes('project')) {
         return createMessageWithButton(responses.projects);
     }
-    else if (message.includes('about') || message.includes('who') || message.includes('background')) {
+    else if (message.includes('about') || message.includes('who') || message.includes('background') || message.includes('more')) {
         return createMessageWithButton(responses.about);
     }
-    else if (message.includes('education') || message.includes('study') || message.includes('qualification')) {
+    else if (message.includes('education') || message.includes('study') || message.includes('qualification') || message.includes('journey')) {
         return createMessageWithButton(responses.education);
     }
     else {
