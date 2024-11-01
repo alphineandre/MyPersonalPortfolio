@@ -76,30 +76,28 @@ const revealOnScroll = () => {
 
 window.addEventListener('scroll', revealOnScroll);
 
+  document.addEventListener("DOMContentLoaded", function () {
+      const timelineItems = document.querySelectorAll(".timeline-item");
+    
+      const observer = new IntersectionObserver(
+          (entries) => {
+              entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add("in-view");
+                      entry.target.style.opacity = '1';
+                      entry.target.style.transform = 'translateX(0)';
+                  }
+              });
+          },
+          {
+              threshold: 0.5,
+          }
+      );
 
-document.addEventListener("DOMContentLoaded", function () {
-    const timelineItems = document.querySelectorAll(".timeline-item");
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("in-view");
-                } else {
-                    entry.target.classList.remove("in-view");
-                }
-            });
-        },
-        {
-            threshold: 0.5,
-        }
-    );
-
-    timelineItems.forEach((item) => {
-        observer.observe(item);
-    });
-});
-
+      timelineItems.forEach((item) => {
+          observer.observe(item);
+      });
+  });
 // Get elements
 const chatbotBtn = document.getElementById('chatbot-btn');
 const chatbotWindow = document.getElementById('chatbot-window');
@@ -177,10 +175,9 @@ function getBotResponse(message) {
     }
 }
 
-// Enhanced message display with animations
 function appendMessage(message, sender) {
     const messageElement = document.createElement('div');
-    messageElement.classList.add('message', `${sender.toLowerCase()}-message`);
+    messageElement.classList.add('message', `message-${sender.toLowerCase()}`);
     messageElement.innerHTML = `<span class="sender">${sender}</span> ${message}`;
     chatContent.appendChild(messageElement);
     chatContent.scrollTop = chatContent.scrollHeight;
