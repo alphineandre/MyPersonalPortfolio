@@ -1,3 +1,34 @@
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Section Highlight
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - sectionHeight/3)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').slice(1) === current) {
+            item.classList.add('active');
+        }
+    });
+});
+
 // Add this at the beginning of your scripts.js file
 document.addEventListener('DOMContentLoaded', function() {
     const readMoreBtn = document.querySelector('.read-more-btn');
@@ -179,19 +210,15 @@ sendBtn.addEventListener('click', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.createElement('div');
+    popup.className = 'welcome-popup';
+    popup.innerHTML = 'Hi! I\'m Kit, Alphy\'s assistant. Click the chat icon if you need help!';
+    document.body.appendChild(popup);
+
     setTimeout(() => {
-        const chatbotWindow = document.getElementById('chatbot-window');
-        chatbotWindow.style.display = 'flex';
-        
-        const chatContent = document.getElementById('chat-content');
-        const welcomeMessage = document.createElement('div');
-        welcomeMessage.className = 'message';
-        welcomeMessage.innerHTML = '<span>Kit:</span> Welcome to Alphy\'s portfolio! Feel free to ask me anything about his work and experience.';
-        chatContent.appendChild(welcomeMessage);
-        
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-            chatbotWindow.style.display = 'none';
-        }, 5000);
-    }, 1500); // Show popup 1.5 seconds after page load
+        popup.style.animation = 'popupFadeIn 0.5s ease reverse';
+        setTimeout(() => popup.remove(), 500);
+    }, 5000);
 });
+
+
